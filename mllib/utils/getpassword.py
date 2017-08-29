@@ -1,7 +1,7 @@
 import json
-from pprint import pprint
 import os
 from os.path import expanduser
+
 home = expanduser("~")
 
 """

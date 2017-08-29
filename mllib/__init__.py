@@ -1,4 +1,15 @@
+__version__ = '0.1.0'
+__author__ = 'Alex Wang'
 
-def main():
-    """Entry point for the application script"""
-    print("Call your main application code here")
+"""
+from datautil
+"""
+
+from mllib.utils.datautils import *
+
+
+"""
+from plotutil
+"""
+
+from mllib.utils.plotutils import *

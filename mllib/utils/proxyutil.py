@@ -2,7 +2,7 @@
 # coding:utf-8
 
 import requests
-from utils import seleniumutil as util
+from mllib.utils import seleniumutil as util
 from bs4 import BeautifulSoup
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, WebDriverException
 from selenium.webdriver.common.by import By
@@ -77,20 +77,9 @@ def crawl_socks_url(driver, url):
 
 
 if __name__ == '__main__':
-    # R = requests.get(BASE_URL + '/post/', headers=HEADERS)
-    # TEXT = R.text.encode('iso-8859-1').decode('gbk')
-    # S = BeautifulSoup(TEXT, BSLIB)
-    # 所有的省份信息
-    # for item in S.select('div#newAlexa > table > tbody > tr > td > a'):  ## 这里取到 a 标签很好, 避免了没有数据的情况.
-    #     handle_zip_code(item.text, BASE_URL + item.get('href'))
-
     #ipvalidate('http://www.ip138.com/')
     _PROFILE_USE = 'profile1'
 
-    # driver = util.create_chrome_driver(_PROFILE_USE, NEEDCONFIG=False)
-    # crawl_socks_url(driver, url='https://www.socks-proxy.net/')
-    # for ip in iplist:
-    #     ipvalidate('http://www.ip138.com',ip)
 
     ipvalidate('http://www.ip138.com', '36.66.218.153:1080')
 

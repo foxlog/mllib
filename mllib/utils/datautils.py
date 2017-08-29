@@ -10,7 +10,7 @@ from sklearn.datasets import load_iris, load_boston, load_breast_cancer, load_di
 
 import tushare as ts
 
-import dateutils
+from mllib.utils import dateutils
 
 import os.path
 

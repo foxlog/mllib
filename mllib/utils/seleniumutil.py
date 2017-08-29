@@ -1,21 +1,9 @@
 # coding: utf-8
 
 from selenium import webdriver
-import importlib
-import os
 import time
 
 from selenium.webdriver import DesiredCapabilities
-from selenium.webdriver.support.wait import WebDriverWait
-
-
-def sleep(seconds = 1):
-    time.sleep(seconds)
-
-from selenium.webdriver.common.proxy import *
-
-#PROXY = "106.5.144.85:8998"
-
 
 def create_chrome_driver_OLD(PROXY=None):
     capabilities = dict( DesiredCapabilities.CHROME )
@@ -76,18 +64,6 @@ def create_chrome_driver(PROXY='profile1', NEEDCONFIG=True):
         time.sleep(60*1)
 
     return driver
-
-def find_element_by_css_selector(item, selector):
-    try:
-        return item.find_element_by_css_selector(selector)
-    except:
-        return None
-        
-def find_elements_by_css_selector(item, selector):
-    try:
-        return item.find_elements_by_css_selector(selector)
-    except:
-        return []
 
 def find_element_by_xpath_selector(item, selector):
     try:

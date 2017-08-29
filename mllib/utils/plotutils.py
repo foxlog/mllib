@@ -1,8 +1,5 @@
-import pandas as pd
 import numpy as np
-from scipy import stats, integrate
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 
 def plot(x, y, color= None, linewidth=None, linestyle=None, marker = None, label=None, figsize=None, xlim=None, xlabel=None, ylabel=None):
@@ -60,8 +57,6 @@ def scatter_demo():
     scatter(x, y, xlabel='xxx', ylabel='yyy')
     plt.show()
 
-def scatter_2_demo():
-    pass
 
 def plot_demo():
     x = np.arange(0., 10, 0.2)

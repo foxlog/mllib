@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import cx_Oracle, string
-from utils import getpassword
+from mllib.utils import getpassword
 import pandas as pd
 
 # Get password

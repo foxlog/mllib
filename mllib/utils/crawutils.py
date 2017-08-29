@@ -9,7 +9,7 @@ import numpy as np
 import time
 import uuid
 import sys
-from utils import seleniumutil as util
+from mllib.utils import seleniumutil as util
 import re
 import lxml.html
 import pandas as pd
@@ -17,7 +17,7 @@ from lxml import etree
 from urllib.request import urlopen, Request
 import requests
 from pandas.compat import StringIO
-import config_vars as CONFIG
+from mllib.utils import config_vars as CONFIG
 import random
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, WebDriverException
 from selenium.webdriver.common.by import By
@@ -158,7 +158,7 @@ def get_lianjia_rent_data(retry_count = 3, pause = 0.01, dataArr=[], pageNo=1, e
 
 
 # 链家网数据
-def get_lianjia_rent_data_sandbox(retry_count = 3, pause = 1, dataArr=[],pageNo='/zufang/pg1', endPage=3):
+def craw_lianjia_rent_data_sandbox(retry_count = 3, pause = 1, dataArr=[],pageNo='/zufang/pg1', endPage=3):
     for _ in range(retry_count):
         time.sleep(pause)
         try:
@@ -235,7 +235,7 @@ def get_lianjia_rent_data_sandbox(retry_count = 3, pause = 1, dataArr=[],pageNo=
             if len(nextPage)>0 :
                 #pageNo = re.findall(r'\d+', nextPage[0])[0]
                 #nextPage = 'https://bj.lianjia.com' + nextPage
-                return get_lianjia_rent_data_sandbox(retry_count, pause, dataArr, pageNo=''.join(nextPage))
+                return craw_lianjia_rent_data_sandbox(retry_count, pause, dataArr, pageNo=''.join(nextPage))
             else:
                 return dataArr
         except Exception as e:
@@ -244,7 +244,7 @@ def get_lianjia_rent_data_sandbox(retry_count = 3, pause = 1, dataArr=[],pageNo=
 
 
 # 通过 chrome 下载数据
-def download_lianjia_chrome(driver, url, target_page):
+def craw_lianjia_chrome(driver, url, target_page):
     random_seconds = random.randint(2, 6)
     time.sleep(random_seconds)
     driver.get(url)
@@ -330,7 +330,7 @@ def _lianjia_chrome_demo():
             print("来一次大的休息: ", _big_sleep)
             time.sleep(_big_sleep)
             nums_to_sleep = 1
-        download_lianjia_chrome(driver, index_page, index_flag)
+        craw_lianjia_chrome(driver, index_page, index_flag)
         index_flag += 1
         nums_to_sleep += 1
 
